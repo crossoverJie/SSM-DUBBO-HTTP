@@ -12,10 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.* ;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
@@ -68,7 +65,7 @@ public class DubboController implements ApplicationContextAware{
 
 
     @ResponseBody
-    @RequestMapping(value = "/{service}/{method}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{service}/{method}",method = RequestMethod.POST)
     public String api(HttpRequest httpRequest, HttpServletRequest request,
                       @PathVariable String service,
                       @PathVariable String method) {
@@ -108,13 +105,13 @@ public class DubboController implements ApplicationContextAware{
         }
         try {
             Class<?> serviceCla = cacheMap.get(service);
-            if (service == null){
+            if (serviceCla == null){
                 serviceCla = Class.forName(service) ;
+                logger.debug("serviceCla:"+JSON.toJSONString(serviceCla));
 
                 //设置缓存
                 cacheMap.put(service,serviceCla) ;
             }
-
             Method[] methods = serviceCla.getMethods();
             Method targetMethod = null ;
             for (Method m : methods) {
@@ -154,12 +151,12 @@ public class DubboController implements ApplicationContextAware{
             response.setCode("2");
             response.setDescription("class not found");
         } catch (InvocationTargetException e) {
-            logger.error("InvocationTargetException");
+            logger.error("InvocationTargetException",e);
             response.setSuccess(false);
             response.setCode("2");
             response.setDescription("InvocationTargetException");
         } catch (IllegalAccessException e) {
-            logger.error("IllegalAccessException");
+            logger.error("IllegalAccessException",e);
             response.setSuccess(false);
             response.setCode("2");
             response.setDescription("IllegalAccessException");
