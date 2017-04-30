@@ -36,6 +36,10 @@
                 <version>${dubbo.version}</version>
                 <exclusions>
                     <exclusion>
+                        <artifactId>spring</artifactId>
+                        <groupId>org.springframework</groupId>
+                    </exclusion>
+                    <exclusion>
                         <artifactId>log4j</artifactId>
                         <groupId>log4j</groupId>
                     </exclusion>
@@ -80,6 +84,7 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>javax.servlet</groupId>
