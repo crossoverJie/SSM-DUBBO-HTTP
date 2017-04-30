@@ -37,3 +37,19 @@ mvn install
     <version>1.0.0</version>
 </dependency>
 ```
+
+## spring配置
+
+```xml
+    <!--dubbo服务暴露为http服务-->
+    <bean class="com.crossoverJie.dubbo.http.conf.HttpProviderConf">
+        <property name="usePackage">
+            <list>
+            	   <!--需要暴露服务的接口包名，可多个-->
+                <value>com.crossoverJie.api</value>
+            </list>
+        </property>
+    </bean>
+    <!--扫描暴露包-->
+    <context:component-scan base-package="com.crossoverJie.dubbo.http"/>
+```
