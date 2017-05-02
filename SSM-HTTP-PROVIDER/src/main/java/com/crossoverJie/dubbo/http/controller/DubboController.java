@@ -59,7 +59,7 @@ public class DubboController implements ApplicationContextAware{
     private HttpProviderConf httpProviderConf;
 
     //缓存作用的map
-    private static Map<String, Class<?>> cacheMap = new HashMap<String, Class<?>>();
+    private final Map<String, Class<?>> cacheMap = new HashMap<String, Class<?>>();
 
     protected ApplicationContext applicationContext;
 
