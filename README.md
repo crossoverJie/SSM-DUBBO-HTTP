@@ -1,3 +1,5 @@
+![](https://travis-ci.org/crossoverJie/SSM-DUBBO-HTTP.svg?branch=master)
+
 # 开发
 
 http://crossoverjie.top/2017/05/02/SSM13/
