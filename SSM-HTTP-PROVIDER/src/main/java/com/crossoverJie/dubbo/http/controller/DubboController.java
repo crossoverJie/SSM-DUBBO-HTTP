@@ -58,7 +58,9 @@ public class DubboController implements ApplicationContextAware{
     @Autowired
     private HttpProviderConf httpProviderConf;
 
-    //缓存作用的map
+    /**
+     * 缓存 Map
+     */
     private final Map<String, Class<?>> cacheMap = new HashMap<String, Class<?>>();
 
     protected ApplicationContext applicationContext;
@@ -170,8 +172,9 @@ public class DubboController implements ApplicationContextAware{
      * @return
      */
     private String getIP(HttpServletRequest request) {
-        if (request == null)
+        if (request == null) {
             return null;
+        }
         String s = request.getHeader("X-Forwarded-For");
         if (s == null || s.length() == 0 || "unknown".equalsIgnoreCase(s)) {
 
@@ -192,15 +195,17 @@ public class DubboController implements ApplicationContextAware{
 
             s = request.getRemoteAddr();
         }
-        if ("127.0.0.1".equals(s) || "0:0:0:0:0:0:0:1".equals(s))
+        if ("127.0.0.1".equals(s) || "0:0:0:0:0:0:0:1".equals(s)) {
             try {
                 s = InetAddress.getLocalHost().getHostAddress();
             } catch (UnknownHostException unknownhostexception) {
                 return "";
             }
+        }
         return s;
     }
 
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
