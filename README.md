@@ -42,7 +42,7 @@ mvn install
 </dependency>
 ```
 
-## spring配置
+## Spring 配置
 
 ```xml
     <!--dubbo服务暴露为http服务-->
