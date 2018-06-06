@@ -57,3 +57,10 @@ mvn install
     <!--扫描暴露包-->
     <context:component-scan base-package="com.crossoverJie.dubbo.http"/>
 ```
+
+
+## 联系作者
+
+> crossoverJie#gmail.com
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1frz6eaf3s4j308c0au0ss.jpg)
