@@ -1,8 +1,9 @@
 ![](https://travis-ci.org/crossoverJie/SSM-DUBBO-HTTP.svg?branch=master)
+[![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-787381170-yellowgreen.svg)](https://jq.qq.com/?_wv=1027&k=5HPYvQk)
 
 # 开发
 
-http://crossoverjie.top/2017/05/02/SSM13/
+https://crossoverjie.top/2017/05/02/SSM13/
 
 # 预览
 ![dubbo-http封面.jpg](https://ooo.0o0.ooo/2017/04/30/5905dae5d9b8c.jpg)
